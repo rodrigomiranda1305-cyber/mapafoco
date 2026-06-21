@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MapaFoco — Mapas Mentais para Concurso Público</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Montserrat:wght@400;500;600&family=Manrope:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1E384C;
+    --secondary: #EEC02F;
+    --background: #FFFFFF;
+    --text: #111111;
+
+    --color-cta: #169F16;
+    --color-cta-border: #265D11;
+    --color-cta-premium: #00BD39;
+
+    --color-danger: #EC2F36;
+    --color-danger-text: #F60808;
+    --color-danger-alt: #CE2314;
+    --color-danger-basic: #DA0303;
+
+    --color-dark-card: #081824;
+
+    --color-badge-bg: #7EEF6D;
+    --color-badge-text: #025604;
+
+    --text-body: #272727;
+    --text-muted: #333333;
+    --text-footer: #7A7A7A;
+    --text-white: #FFFFFF;
+    --text-black: #000000;
+
+    --border-primary: #1E384C;
+    --border-yellow: #EEC02F;
+    --border-muted: #D5D8DC;
+
+    --font-primary: 'Poppins', sans-serif;
+    --font-cta: 'Roboto', sans-serif;
+    --font-support: 'Montserrat', sans-serif;
+    --font-base: 'Manrope', sans-serif;
+
+    --radius-sm: 7px;
+    --radius-md: 9px;
+    --radius-lg: 13px;
+    --radius-xl: 16px;
+    --radius-2xl: 21px;
+    --radius-3xl: 25px;
+    --radius-pill: 30px;
+
+    --gap-default: 20px;
+    --padding-section: 10px;
+    --max-width: 767px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-base);
+    font-size: 18.33px;
+    font-weight: 300;
+    line-height: 25.66px;
+    color: var(--text);
+    background-color: var(--background);
+    letter-spacing: -0.1px;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: min(100%, var(--max-width));
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-default);
+    padding: 0 var(--padding-section);
+  }
+
+  .section { width: 100%; }
+  .section--dark   { background-color: var(--primary); padding: 0 var(--padding-section); }
+  .section--yellow { background-color: var(--secondary); padding: 0 var(--padding-section); }
+  .section--white  { background-color: var(--background); }
+
+  .section-inner {
+    max-width: min(100%, var(--max-width));
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-default);
+    padding: 28px var(--padding-section);
+  }
+
+  .img-placeholder {
+    width: 100%;
+    border: 2px dashed var(--border-muted);
+    border-radius: var(--radius-md);
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px 12px;
+    color: var(--text-footer);
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 500;
+    gap: 6px;
+  }
+  .img-placeholder .ph-icon { font-size: 28px; line-height: 1; }
+  .img-placeholder .ph-size { font-size: 11px; color: var(--text-footer); opacity: 0.8; }
+
+  .announcement-bar {
+    background-color: var(--color-danger);
+    color: var(--text-white);
+    font-family: var(--font-primary);
+    font-size: 21px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 29.4px;
+    letter-spacing: -0.1px;
+    padding: 10px 10px;
+    width: 100%;
+  }
+
+  .hero {
+    text-align: center;
+    padding-top: 22px;
+  }
+
+  .hero-logo {
+    width: 110px;
+    margin: 0 auto 14px;
+    display: block;
+  }
+
+  .hero-title {
+    font-family: var(--font-primary);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: -0.1px;
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+
+  .hero-title span {
+    color: var(--secondary);
+    background: var(--primary);
+    padding: 0 6px;
+    border-radius: 4px;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-support);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: -0.1px;
+    color: var(--primary);
+    margin-bottom: 18px;
+  }
+
+  .hero-product-img {
+    margin: 0 auto 18px;
+    max-width: 320px;
+  }
+
+  .price-old {
+    font-family: var(--font-primary);
+    font-size: 33px;
+    font-weight: 700;
+    line-height: 46.2px;
+    letter-spacing: -0.1px;
+    color: var(--color-danger-text);
+    text-decoration: line-through;
+  }
+
+  .price-label {
+    font-family: var(--font-primary);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 33.6px;
+    letter-spacing: -0.1px;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .price-main {
+    font-family: var(--font-primary);
+    font-size: 49px;
+    font-weight: 700;
+    letter-spacing: -0.1px;
+    color: var(--color-cta);
+    margin: 4px 0 18px;
+  }
+
+  .btn-cta {
+    display: block;
+    width: 100%;
+    background-color: var(--color-cta);
+    color: var(--text-white);
+    font-family: var(--font-cta);
+    font-size: 17px;
+    font-weight: 500;
+    text-align: center;
+    padding: 14px 10px;
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: -0.1px;
+    line-height: 17px;
+    transition: filter 0.15s ease;
+  }
+  .btn-cta:hover { filter: brightness(1.08); }
+  .btn-cta:focus-visible { outline: 3px solid var(--secondary); outline-offset: 2px; }
+
+  .btn-cta--premium {
+    font-size: 19px;
+    font-weight: 700;
+    padding: 14px 10px;
+    border-radius: var(--radius-pill);
+    border: 1.6px solid var(--color-cta-border);
+  }
+
+  .btn-cta--basic {
+    font-size: 19px;
+    font-weight: 700;
+    padding: 14px 10px;
+    border-radius: 32px;
+    border: 1.6px groove var(--color-cta-border);
+  }
+
+  .feature-card {
+    background: var(--background);
+    border: 1.6px solid var(--primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .feature-card-icon {
+    color: var(--secondary);
+    font-size: 19px;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  .feature-card-text {
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-black);
+  }
+
+  .heading-section {
+    font-family: var(--font-primary);
+    font-size: 27px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.1px;
+    line-height: 37.8px;
+  }
+  .heading-section--yellow { color: var(--secondary); }
+  .heading-section--primary { color: var(--primary); }
+  .heading-section--black { color: var(--text-black); }
+
+  .feature-card-yellow {
+    background-color: var(--background);
+    border: 1.6px solid var(--secondary);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .feature-card-yellow .feature-card-icon { color: var(--secondary); }
+  .feature-card-yellow .feature-card-text { color: var(--text-black); }
+
+  .subject-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .subject-list-item {
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-white);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .subject-list-item::before {
+    content: "✓";
+    color: var(--secondary);
+    font-weight: 700;
+  }
+
+  .testimonial-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .bonus-card {
+    border: 2.4px solid var(--primary);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    background-color: transparent;
+    text-align: center;
+  }
+
+  .bonus-tag {
+    background-color: var(--primary);
+    color: var(--secondary);
+    font-family: var(--font-primary);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 10px;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    margin: -16px -16px 14px -16px;
+  }
+
+  .bonus-img {
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+
+  .bonus-body {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-body);
+    margin-bottom: 12px;
+    text-align: left;
+  }
+  .bonus-body strong { color: var(--primary); }
+
+  .bonus-badge {
+    background-color: var(--color-badge-bg);
+    border: 1.6px solid var(--color-badge-text);
+    border-radius: var(--radius-xl);
+    padding: 10px 14px;
+    font-family: var(--font-primary);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-badge-text);
+    display: block;
+    text-align: center;
+  }
+
+  .special-block {
+    background-color: var(--color-dark-card);
+    border-radius: var(--radius-3xl);
+    padding: 24px 16px;
+    text-align: center;
+    color: var(--text-white);
+  }
+
+  .special-block-logo {
+    margin: 0 auto 6px;
+    width: 90px;
+  }
+
+  .special-block-tagline {
+    font-family: var(--font-primary);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--text-white);
+    margin-bottom: 12px;
+  }
+
+  .special-block-badge {
+    font-family: var(--font-primary);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 14px;
+  }
+
+  .special-block-combo {
+    background-color: var(--color-cta);
+    color: var(--text-white);
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: var(--radius-xl);
+    padding: 10px;
+    margin-bottom: 14px;
+  }
+
+  .pricing-premium {
+    background-color: var(--color-dark-card);
+    border-radius: var(--radius-3xl);
+    padding: 22px 18px 22px;
+    color: var(--text-white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pricing-premium .badge-top {
+    font-family: var(--font-primary);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-white);
+    letter-spacing: -0.1px;
+  }
+
+  .pricing-premium .plan-name {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-white);
+    margin-top: 6px;
+  }
+
+  .pricing-premium-img {
+    border-radius: var(--radius-md);
+    margin: 10px 0;
+  }
+
+  .pricing-premium .price-old {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-danger-alt);
+    text-decoration: line-through;
+    line-height: normal;
+    margin-top: 8px;
+  }
+
+  .pricing-premium .label-today {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-white);
+    letter-spacing: -0.1px;
+  }
+
+  .pricing-premium .price-main {
+    font-size: 60px;
+    font-weight: 700;
+    color: var(--color-cta-premium);
+    font-family: var(--font-primary);
+    letter-spacing: -0.1px;
+    line-height: 1;
+    margin: 4px 0 6px;
+  }
+
+  .pricing-premium .urgency-note {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-white);
+    letter-spacing: -0.1px;
+    margin-top: 12px;
+  }
+
+  .pricing-premium .checklist {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px 0;
+  }
+
+  .pricing-premium .checklist-item {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-white);
+    display: flex;
+    gap: 8px;
+  }
+  .pricing-premium .checklist-item::before {
+    content: "✓";
+    color: var(--color-cta-premium);
+    font-weight: 700;
+  }
+
+  .pricing-basic {
+    background-color: var(--background);
+    border-radius: var(--radius-3xl);
+    padding: 22px 18px;
+    border: 1.6px solid var(--border-muted);
+    text-align: center;
+  }
+
+  .pricing-basic .tag-label {
+    background-color: var(--text-muted);
+    color: var(--text-white);
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: var(--radius-xl);
+    padding: 8px 16px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  .pricing-basic .plan-name {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+
+  .pricing-basic .price-old {
+    font-size: 33px;
+    font-weight: 700;
+    color: var(--color-danger-basic);
+    text-decoration: line-through;
+  }
+
+  .pricing-basic .price-main {
+    font-size: 43px;
+    font-weight: 700;
+    color: var(--color-cta-premium);
+    margin: 4px 0 14px;
+  }
+
+  .pricing-basic ul {
+    text-align: left;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .pricing-basic .item {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    display: flex;
+    gap: 8px;
+  }
+  .pricing-basic .item::before {
+    content: "✓";
+    color: var(--color-cta);
+    font-weight: 700;
+  }
+
+  .highlight-box {
+    border: 1.6px dotted var(--primary);
+    border-radius: var(--radius-2xl);
+    padding: 30px 16px 16px;
+    font-family: var(--font-primary);
+    font-size: 15px;
+    color: var(--text-black);
+    line-height: 1.6;
+    position: relative;
+    margin-top: 14px;
+  }
+
+  .highlight-box strong { color: var(--primary); }
+
+  .recap-text {
+    font-family: var(--font-primary);
+    font-size: 15px;
+    color: var(--text-black);
+    line-height: 1.7;
+  }
+
+  .recap-text strong { color: var(--primary); }
+  .recap-text u { text-decoration-color: var(--secondary); text-decoration-thickness: 2px; }
+
+  .guarantee-section {
+    text-align: center;
+  }
+
+  .guarantee-seal-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .guarantee-seal {
+    width: 200px;
+    filter: drop-shadow(0 4px 18px rgba(30,56,76,0.18));
+    transition: transform 0.2s ease;
+  }
+  .guarantee-seal:hover { transform: scale(1.04); }
+
+  .guarantee-title {
+    font-family: var(--font-primary);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .faq-item {
+    border: 0.8px solid var(--border-muted);
+  }
+
+  .faq-item summary {
+    background-color: var(--primary);
+    color: var(--text-white);
+    font-family: var(--font-base);
+    font-size: 18.33px;
+    font-weight: 300;
+    padding: 14px;
+    border: 0.8px solid var(--border-muted);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: "+";
+    font-size: 22px;
+    flex-shrink: 0;
+    color: var(--secondary);
+  }
+
+  .faq-item[open] summary::after {
+    content: "–";
+  }
+
+  .faq-item-body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: var(--font-base);
+    font-size: 18.33px;
+    padding: 14px;
+    border: 0.8px solid var(--border-muted);
+    border-top: none;
+    line-height: 25.66px;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 30px var(--padding-section) 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    width: 70px;
+  }
+
+  .footer-copy {
+    font-family: var(--font-primary);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-footer);
+    letter-spacing: -0.1px;
+  }
+
+  .pulse {
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.015); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse { animation: none; }
+    .btn-cta { transition: none; }
+  }
+
+  @media (max-width: 480px) {
+    .subject-grid { grid-template-columns: 1fr; }
+    .pricing-premium .price-main { font-size: 48px; }
+    .hero-title { font-size: 22px; line-height: 30px; }
+  }
+</style>
+<script>
+  window.pixelId = "lt_px_65b0d2eecb14";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://lowtrack.com.br/pixel.js");
+  document.head.appendChild(a);
+</script>
+</head>
+<body>
+
+  <div class="announcement-bar">
+    🔥 ÚLTIMAS HORAS COM CONDIÇÃO ESPECIAL
+  </div>
+
+  <section class="section section--white">
+    <div class="container hero" style="padding-top: 28px; padding-bottom: 0;">
+      <img class="hero-logo" src="assets/logo.png" alt="Logo MapaFoco">
+
+      <h1 class="hero-title">
+        Pare de ler livros inteiros. Aprenda <span>10x mais rápido</span> com mapas mentais prontos para a sua prova.
+      </h1>
+
+      <p class="hero-subtitle">
+        Você terá acesso a mais de <strong>1000 mapas mentais</strong> feitos por especialistas aprovados nos mais diversos concursos.
+      </p>
+
+      <img class="hero-product-img" src="assets/capa-produto.png" alt="Capa do material MapaFoco: caixa com mais de 900 mapas mentais para concursos">
+
+      <p class="price-old">DE R$ 47,90</p>
+      <p class="price-label">por apenas</p>
+      <p class="price-main">R$ 10</p>
+
+      <a href="#oferta" class="btn-cta">ADQUIRIR AGORA! Garantia de Reembolso de 7 dias</a>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container" style="padding-top: 10px; padding-bottom: 10px;">
+      <h2 class="heading-section heading-section--primary" style="margin-bottom: 6px;">ESSES MAPAS MENTAIS SÃO PARA VOCÊ QUE...</h2>
+
+      <div class="feature-card">
+        <span class="feature-card-icon">›</span>
+        <p class="feature-card-text">Está perto da prova e precisa de um material objetivo, sem rodeios.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-card-icon">›</span>
+        <p class="feature-card-text">Quer ter um diferencial na hora de revisar para a prova.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-card-icon">›</span>
+        <p class="feature-card-text">Precisa de exemplos práticos para fixar o conteúdo de verdade.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-card-icon">›</span>
+        <p class="feature-card-text">Não tem tempo nem paciência para encarar 1000 páginas de material regular.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-card-icon">›</span>
+        <p class="feature-card-text">Já estudou bastante, mas sente que o conteúdo "não fica" e isso desanima.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="section-inner">
+      <h2 class="heading-section heading-section--yellow">NOSSOS MAPAS MENTAIS SÃO...</h2>
+
+      <img src="assets/mapa-exemplo.png" alt="Exemplo de mapa mental sobre Poder Judiciário, mostrando classificação, dicas de prova e pegadinhas de banca" style="border-radius: 9px; border: 1.6px solid var(--secondary);">
+
+      <div class="feature-card-yellow">
+        <span class="feature-card-icon">★</span>
+        <p class="feature-card-text">100% atualizados com a legislação e o estilo de cobrança das bancas mais recentes.</p>
+      </div>
+      <div class="feature-card-yellow">
+        <span class="feature-card-icon">★</span>
+        <p class="feature-card-text">Feitos por especialistas aprovados nos mais diversos concursos públicos.</p>
+      </div>
+      <div class="feature-card-yellow">
+        <span class="feature-card-icon">★</span>
+        <p class="feature-card-text">Construídos para facilitar de verdade a sua aprendizagem, sem texto corrido cansativo.</p>
+      </div>
+      <div class="feature-card-yellow">
+        <span class="feature-card-icon">★</span>
+        <p class="feature-card-text">Repletos de quadros, grifos, cores e fluxogramas que ajudam sua memória a reter o conteúdo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="section-inner">
+      <h2 class="heading-section heading-section--yellow">MAIS DE 900 MAPAS MENTAIS DIVIDIDOS EM:</h2>
+      <div class="subject-grid">
+        <p class="subject-list-item">Direito Administrativo</p>
+        <p class="subject-list-item">Direito Constitucional</p>
+        <p class="subject-list-item">Direito Civil</p>
+        <p class="subject-list-item">Direito Processo Civil</p>
+        <p class="subject-list-item">Direito Penal</p>
+        <p class="subject-list-item">Direito Processo Penal</p>
+        <p class="subject-list-item">Direito Tributário</p>
+        <p class="subject-list-item">Direito Trabalhista</p>
+        <p class="subject-list-item">Direito Processual do Trabalho</p>
+        <p class="subject-list-item">Direito Previdenciário</p>
+        <p class="subject-list-item">Direito Eleitoral</p>
+        <p class="subject-list-item">Direito Empresarial</p>
+        <p class="subject-list-item">Língua Portuguesa</p>
+        <p class="subject-list-item">Informática Básica</p>
+        <p class="subject-list-item">Tecnologia da Informação</p>
+        <p class="subject-list-item">Raciocínio Lógico</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="section-inner">
+      <h2 class="heading-section heading-section--yellow">O QUE NOSSOS CLIENTES FALAM...</h2>
+
+      <div class="testimonial-grid">
+        <img src="assets/depoimento1.jpg.png" alt="Depoimento de clientes via WhatsApp" style="border-radius: var(--radius-md); width: 100%;">
+        <img src="assets/depoimento2.jpg.png" alt="Depoimentos via Instagram e WhatsApp" style="border-radius: var(--radius-md); width: 100%;">
+        <img src="assets/depoimento3.jpg.png" alt="Depoimentos de clientes" style="border-radius: var(--radius-md); width: 100%;">
+        <img src="assets/depoimento4.jpg.png" alt="Depoimentos via WhatsApp" style="border-radius: var(--radius-md); width: 100%;">
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container" style="padding-top: 10px; padding-bottom: 10px;">
+      <h2 class="heading-section heading-section--primary" style="margin-bottom: 6px;">+ 4 BÔNUS ESPECIAIS</h2>
+
+      <div class="bonus-card">
+        <p class="bonus-tag">BÔNUS #01</p>
+        <div class="bonus-img">
+          <img src="assets/bonus1.png" alt="Capa do ebook Redação Nota 10">
+        </div>
+        <p class="bonus-body">
+          Com este manual, o objetivo é transmitir de forma didática <strong>todo o conteúdo importante sobre a prova discursiva</strong>. Você vai aprender a estruturar seus textos do jeito que a banca espera e, assim, conquistar a nota máxima em qualquer redação.
+        </p>
+        <span class="bonus-badge">Adicionando a Super Oferta, você leva esse bônus de graça!</span>
+      </div>
+
+      <div class="bonus-card">
+        <p class="bonus-tag">BÔNUS #02</p>
+        <div class="bonus-img">
+          <img src="assets/bonus2.png" alt="Capa do material com mais de 500 questões para concursos">
+        </div>
+        <p class="bonus-body">
+          Pratique seus conhecimentos e sinta-se <strong>100% preparado</strong>. Saiba como será o dia da sua prova antes dele chegar: questões inéditas, totalmente baseadas no estilo da banca, para você treinar de forma assertiva e chegar tranquilo no dia da prova.
+        </p>
+        <span class="bonus-badge">Adicionando a Super Oferta, você leva esse bônus de graça!</span>
+      </div>
+
+      <div class="bonus-card">
+        <p class="bonus-tag">BÔNUS #03</p>
+        <div class="bonus-img">
+          <img src="assets/bonus3.png" alt="Capa do ebook Bizus e Mnemônicos, com mais de 100 macetes de Direito">
+        </div>
+        <p class="bonus-body">
+          Já imaginou estudar de forma eficaz, sem textos cansativos, e ainda memorizar o conteúdo? Estamos falando de uma técnica poderosa: os <strong>mnemônicos</strong>. Acelere em até 5x sua memorização com nossos bizus e tenha mais foco, produtividade e objetividade.
+        </p>
+        <span class="bonus-badge">Adicionando a Super Oferta, você leva esse bônus de graça!</span>
+      </div>
+
+      <div class="bonus-card">
+        <p class="bonus-tag">BÔNUS #04</p>
+        <div class="bonus-img">
+          <img src="assets/bonus4.png" alt="Capa do Guia Como Fazer Revisão">
+        </div>
+        <p class="bonus-body">
+          O guia definitivo para a <strong>revisão perfeita</strong>. Você vai aprender exatamente quando e como revisar cada matéria, evitando esquecer o que já estudou e otimizando seu tempo na reta final de preparação.
+        </p>
+        <span class="bonus-badge">Adicionando a Super Oferta, você leva esse bônus de graça!</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--yellow">
+    <div class="container" style="padding-top: 24px; padding-bottom: 24px;">
+      <h2 class="heading-section heading-section--black">FIZEMOS ALGO ESPECIAL PARA VOCÊ 👇</h2>
+
+      <div class="special-block">
+        <img class="special-block-logo" src="assets/logo.png" alt="MapaFoco">
+        <p class="special-block-tagline">o mais vendido</p>
+        <p class="special-block-badge">⭐ O MAIS VENDIDO ⭐</p>
+        <div class="special-block-combo">SUPER COMBO: CURSO COMPLETO + BÔNUS</div>
+        <p class="price-old" style="font-size:24px;">Valor Total: R$ 87,90</p>
+        <p class="price-main" style="color: var(--color-cta-premium); font-size:60px; margin: 4px 0;">R$ 19,90</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container" style="padding-top: 10px; padding-bottom: 20px;" id="oferta">
+
+      <div class="pricing-premium pulse">
+        <p class="badge-top">⭐ OFERTA RECOMENDADA ⭐</p>
+        <p class="plan-name">MapaFoco — Combo Completo</p>
+
+        <img class="pricing-premium-img" src="assets/capa-produto.png" alt="Combo MapaFoco: mapas mentais + bônus de redação, questões e revisão">
+
+        <div class="checklist">
+          <p class="checklist-item">Pack: +1000 Mapas Mentais divididos em 16 matérias</p>
+          <p class="checklist-item">Bônus 01: Ebook Redação Nota 10</p>
+          <p class="checklist-item">Bônus 02: +500 Questões para Concursos</p>
+          <p class="checklist-item">Bônus 03: Ebook com +100 Bizus e Mnemônicos</p>
+          <p class="checklist-item">Bônus 04: Guia Como Fazer Revisão</p>
+          <p class="checklist-item">Acesso vitalício</p>
+          <p class="checklist-item">7 dias de garantia incondicional</p>
+        </div>
+
+        <p class="price-old">Valor Total: R$ 87,90</p>
+        <p class="label-today">HOJE, PAGAMENTO ÚNICO DE:</p>
+        <p class="price-main">R$ 19,90</p>
+
+        <a href="https://pay.lowify.com.br/checkout?product_id=lna1XN" class="btn-cta btn-cta--premium">SIM! QUERO ESSA SUPER OFERTA!</a>
+        <p class="urgency-note">APROVEITE AGORA: você NÃO vai encontrar esse preço depois.</p>
+      </div>
+
+      <div class="pricing-basic">
+        <p class="tag-label">PLANO BÁSICO: CURSO COMPLETO</p>
+        <p class="plan-name">PAGAMENTO ÚNICO</p>
+
+        <ul>
+          <li class="item">Pack com +500 mapas mentais divididos em 8 matérias</li>
+          <li class="item">1 ano de acesso</li>
+        </ul>
+
+        <p class="price-old">DE R$ 47,90</p>
+        <p class="price-main">R$ 10</p>
+
+        <a href="https://pay.lowify.com.br/checkout?product_id=eu3nT1" class="btn-cta btn-cta--basic">QUERO ESSA OPÇÃO!</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container" style="padding-top: 10px; padding-bottom: 20px;">
+      <h2 class="heading-section heading-section--primary" style="margin-bottom: 6px;">Vou Resumir para Você...</h2>
+      <p class="recap-text">
+        Se você tem pouco tempo, está cansado de estudar e sente que não fixa nada, e ainda precisa conciliar os estudos com casa, trabalho e tudo mais — então eu realmente acredito que adquirir esse material é uma <strong>decisão inteligente</strong>.
+      </p>
+      <p class="recap-text" style="margin-top: 12px;">
+        <u>Não posso garantir que você vai ser aprovado.</u> Mas posso garantir que você terá acesso ao exato caminho que muitos concurseiros seguiram para revisar melhor e chegar mais preparados no dia da prova.
+      </p>
+
+      <div class="highlight-box">
+        <strong>A proposta é simples e clara:</strong> estamos te oferecendo a oportunidade de chegar muito mais preparado para qualquer prova de concurso, com um investimento muito baixo.
+      </div>
+
+      <p class="recap-text" style="margin-top: 12px;">
+        Adquirindo seu acesso hoje, você garante <strong>85% de desconto</strong> e ainda leva <strong>+4 bônus exclusivos</strong>. Pagamento único, sem pegadinhas, e com 7 dias de garantia.
+      </p>
+      <p class="recap-text" style="margin-top: 12px;">
+        Logo após a aprovação do pagamento, <strong>você recebe no seu e-mail</strong> os dados de acesso. O material fica disponível em uma área de membros premium, pensada para te dar a melhor experiência possível.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container guarantee-section" style="padding-top: 10px; padding-bottom: 20px;">
+      <h2 class="guarantee-title">O pagamento é único? E se eu não gostar?</h2>
+      <div class="guarantee-seal-wrapper">
+        <img class="guarantee-seal" src="assets/selo-garantia.png" alt="Selo de garantia de 7 dias">
+      </div>
+      <p class="recap-text">
+        Nós confiamos tanto na qualidade do nosso material que oferecemos <strong>7 dias de garantia total</strong>. Você pode acessar tudo, testar, avaliar com calma — e se por qualquer motivo achar que não é para você, basta enviar um e-mail dentro desse prazo e devolvemos 100% do seu investimento, sem perguntas e sem burocracia.
+      </p>
+      <p class="recap-text" style="margin-top: 12px;">
+        Você tem tudo a ganhar e <strong>zero risco</strong>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container" style="padding-top: 10px; padding-bottom: 10px; gap: 0;">
+      <h2 class="heading-section heading-section--primary" style="margin-bottom: 16px;">PERGUNTAS FREQUENTES</h2>
+
+      <details class="faq-item">
+        <summary>Como recebo o material?</summary>
+        <div class="faq-item-body">
+          Assim que o pagamento for confirmado, você recebe o acesso por e-mail com o link para a área de membros, onde está todo o conteúdo em PDF para download.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>O material é atualizado?</summary>
+        <div class="faq-item-body">
+          Sim. Os mapas mentais são revisados periodicamente para acompanhar mudanças na legislação e nas tendências de cobrança das bancas.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Por quanto tempo terei acesso à área de membros?</summary>
+        <div class="faq-item-body">
+          No plano Combo Completo o acesso é vitalício. No plano Básico, o acesso é válido por 1 ano a partir da data da compra.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Posso fazer o download e imprimir?</summary>
+        <div class="faq-item-body">
+          Sim, todos os mapas estão em PDF e podem ser baixados e impressos livremente para seu uso pessoal.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Posso compartilhar o acesso à área de membros?</summary>
+        <div class="faq-item-body">
+          O acesso é individual e pessoal, vinculado ao e-mail de compra, conforme os termos de uso do produto.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Cancelamento da compra</summary>
+        <div class="faq-item-body">
+          Dentro do prazo de garantia de 7 dias, basta enviar um e-mail solicitando o cancelamento e o reembolso é processado integralmente, sem burocracia.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="footer">
+      <a href="#oferta" class="btn-cta" style="max-width: 320px;">ADQUIRIR AGORA!</a>
+
+      <img class="footer-logo" src="assets/logo.png" alt="MapaFoco">
+
+      <p class="footer-copy">Copyright © 2026 MapaFoco - Aprovado com mapas. Todos os direitos reservados.</p>
+    </div>
+  </section>
+
+</body>
+</html>
